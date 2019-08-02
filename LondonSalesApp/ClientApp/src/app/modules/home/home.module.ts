@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, JumbotronComponent, CardComponent],
   imports: [
     CommonModule,
     HomeRoutingModule

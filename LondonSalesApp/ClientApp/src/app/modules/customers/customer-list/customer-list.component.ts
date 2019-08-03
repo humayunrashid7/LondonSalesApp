@@ -15,7 +15,8 @@ export class CustomerListComponent implements OnInit {
     firstName: 'Humayun',
     lastName: 'Rashid',
     email: 'humayun@gmail.com',
-    phone: '647-109-0987'
+    phone: '647-109-0987',
+    customerSince: new Date(2010, 1)
   };
 
   customer2: CustomerModel = {
@@ -23,7 +24,8 @@ export class CustomerListComponent implements OnInit {
     firstName: 'Zoya',
     lastName: 'Rashid',
     email: 'zoya@gmail.com',
-    phone: '647-109-2198'
+    phone: '647-109-2198',
+    customerSince: new Date(2012, 8)
   };
 
   constructor() { }

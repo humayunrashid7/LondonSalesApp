@@ -1,0 +1,43 @@
+<div class="row"> <!--Row 1 - Start -->
+  <div class="col-6"> <!--Col 1 - Start -->
+
+    <h3>Customers List</h3>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Customer ID</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{ customer.customerId }}</td>
+              <td>{{ customer.firstName }} {{ customer.lastName }}</td>
+              <td>{{ customer.email }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>
+                <button class="btn btn-primary" (click)="getCustomerDetails(customer)">Detail</button>
+              </td>
+            </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div> <!--Col 1 - End -->
+
+  <div class="col-6" *ngIf="currentCustomer"> <!--Col 2 - Start -->
+    <app-customer-detail [childCustomer]="currentCustomer"></app-customer-detail>
+  </div>
+
+</div> <!--Row 1 - End -->

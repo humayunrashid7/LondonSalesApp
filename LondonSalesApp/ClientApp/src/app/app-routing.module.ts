@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: './modules/home/home.module#HomeModule'
   },
   {
+    path: 'customers',
+    loadChildren: './modules/customers/customers.module#CustomersModule'
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'

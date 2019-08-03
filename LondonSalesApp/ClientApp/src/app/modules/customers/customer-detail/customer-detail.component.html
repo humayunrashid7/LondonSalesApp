@@ -1,16 +1,62 @@
 <div class="row">
   <div class="col-10">
-    <h3>Customers Detail</h3>
+    <h3>Customer's Detail</h3>
   </div>
   <div class="col-2">
-    <button class="btn btn-primary" (click)="getCustomerDetails(customer)">Close</button>
+    <button class="btn btn-primary" (click)="closeDetails()">Close</button>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-4">
-    <h5>{{ childCustomer.firstName }}</h5>
-    {{ childCustomer.lastName }} <hr/>
-    {{ childCustomer.email }}
+  <div class="col-8">
+
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>Name: </td>
+        <td>{{ childCustomer.firstName }} {{ childCustomer.lastName }}</td>
+      </tr>
+      <tr>
+        <td>Customer Since: </td>
+        <td>{{ childCustomer.customerSince }}</td>
+      </tr>
+      <tr>
+        <td>Email: </td>
+        <td>{{ childCustomer.email }}</td>
+      </tr>
+      <tr>
+        <td>Phone: </td>
+        <td>{{ childCustomer.phone }}</td>
+      </tr>
+      <tr>
+        <td>Address Line 1: </td>
+        <td>{{ childCustomer.addressLine1 }}</td>
+      </tr>
+      <tr>
+        <td>Address Line 2: </td>
+        <td>{{ childCustomer.addressLine2 }}</td>
+      </tr>
+      <tr>
+        <td>City: </td>
+        <td>{{ childCustomer.city }}</td>
+      </tr>
+      <tr>
+        <td>Province: </td>
+        <td>{{ childCustomer.province }}</td>
+      </tr>
+      <tr>
+        <td>Postal Code: </td>
+        <td>{{ childCustomer.postalCode }}</td>
+      </tr>
+      </tbody>
+    </table>
+
   </div>
 </div>

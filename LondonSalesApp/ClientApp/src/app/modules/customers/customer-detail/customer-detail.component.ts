@@ -15,4 +15,7 @@ export class CustomerDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  // TODO: Close the child component on click
+  closeDetails() {}
+
 }

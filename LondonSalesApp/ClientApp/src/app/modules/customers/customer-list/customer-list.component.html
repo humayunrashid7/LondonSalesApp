@@ -12,7 +12,6 @@
               <th scope="col">Customer ID</th>
               <th scope="col">Full Name</th>
               <th scope="col">Email</th>
-              <th scope="col">Phone</th>
               <th></th>
             </tr>
             </thead>
@@ -22,13 +21,11 @@
               <td>{{ customer.customerId }}</td>
               <td>{{ customer.firstName }} {{ customer.lastName }}</td>
               <td>{{ customer.email }}</td>
-              <td>{{ customer.phone }}</td>
               <td>
                 <button class="btn btn-primary" (click)="getCustomerDetails(customer)">Detail</button>
               </td>
             </tr>
             </tbody>
-
           </table>
         </div>
       </div>

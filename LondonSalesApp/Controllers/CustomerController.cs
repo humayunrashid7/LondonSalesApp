@@ -49,6 +49,7 @@ namespace LondonSalesApp.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var newCustomerId = await _customerRepository.CreateCustomer(customer);
+            if (newCustomerId == 0) return BadRequest();
 
             return Ok(newCustomerId);
         }
@@ -65,7 +66,7 @@ namespace LondonSalesApp.Controllers
         }
 
         // DELETE api/customers/5
-        [HttpPut("{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
             await _customerRepository.DeleteCustomer(id);

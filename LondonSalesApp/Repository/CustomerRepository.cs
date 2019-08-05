@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using LondonSalesApp.Models;
 using LondonSalesApp.Repository.Interfaces;
+using LondonSalesApp.Utilities;
 
 namespace LondonSalesApp.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public Task<IAsyncEnumerable<Customer>> GetAllCustomers()
+        public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return await CustomerDbUtil.GetAllCustomers();
         }
 
-        public Task<Customer> GetCustomerById(int id)
+        public async Task<Customer> GetCustomerById(int id)
         {
-            throw new NotImplementedException();
+            return await CustomerDbUtil.GetCustomerById(id);
         }
 
-        public Task<int> CreateCustomer(Customer customer)
+        public async Task<int> CreateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            return await CustomerDbUtil.CreateCustomer(customer);
         }
 
-        public Task UpdateCustomer(int id, Customer customer)
+        public async Task UpdateCustomer(int id, Customer customer)
         {
-            throw new NotImplementedException();
+            await CustomerDbUtil.UpdateCustomer(id, customer);
         }
 
-        public Task DeleteCustomer(int id)
+        public async Task DeleteCustomer(int id)
         {
-            throw new NotImplementedException();
+            await CustomerDbUtil.DeleteCustomer(id);
         }
     }
 }

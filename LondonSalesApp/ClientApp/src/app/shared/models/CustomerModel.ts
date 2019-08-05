@@ -5,10 +5,10 @@ export class CustomerModel {
   lastName: string;
   email: string;
   phone?: string;
-  addressLine1?: string;
-  addressLine2?: string;
+  customerSince: Date;
+  line1?: string;
+  line2?: string;
   city?: string;
   province?: string;
   postalCode?: string;
-  customerSince: Date;
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CustomerModel} from '../../../shared/models/CustomerModel';
+import {CustomerService} from '../../../shared/services/customer.service';
 
 @Component({
   selector: 'app-customer-detail',
@@ -10,7 +11,7 @@ export class CustomerDetailComponent implements OnInit {
 
   @Input() childCustomer: CustomerModel;
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
   }
@@ -18,4 +19,7 @@ export class CustomerDetailComponent implements OnInit {
   // TODO: Close the child component on click
   closeDetails() {}
 
+  deleteCustomer(customerId: number) {
+    this.customerService.deleteCustomer(customerId).subscribe();
+  }
 }

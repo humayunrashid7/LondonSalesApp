@@ -12,18 +12,17 @@
               <th scope="col">Customer ID</th>
               <th scope="col">Full Name</th>
               <th scope="col">Email</th>
-              <th></th>
             </tr>
             </thead>
-
             <tbody>
             <tr *ngFor="let customer of customers">
               <td>{{ customer.customerId }}</td>
-              <td>{{ customer.firstName }} {{ customer.lastName }}</td>
-              <td>{{ customer.email }}</td>
               <td>
-                <button class="btn btn-primary" (click)="getCustomerDetails(customer)">Detail</button>
+                <a href="javascript:void(0);" (click)="getCustomerDetails(customer)">
+                  {{ customer.firstName }} {{ customer.lastName }}
+                </a>
               </td>
+              <td>{{ customer.email }}</td>
             </tr>
             </tbody>
           </table>

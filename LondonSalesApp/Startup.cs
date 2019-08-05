@@ -49,14 +49,14 @@ namespace LondonSalesApp
             app.UseHttpsRedirection();
             app.UseMvc();
 
-//            app.UseSpa(s =>
-//            {
-//                s.Options.SourcePath = "ClientApp";
-//                if (env.IsDevelopment())
-//                {
-//                    s.UseAngularCliServer(npmScript: "start");
-//                }
-//            });
+            app.UseSpa(s =>
+            {
+                s.Options.SourcePath = "ClientApp";
+                if (env.IsDevelopment())
+                {
+                    s.UseAngularCliServer(npmScript: "start");
+                }
+            });
         }
     }
 }

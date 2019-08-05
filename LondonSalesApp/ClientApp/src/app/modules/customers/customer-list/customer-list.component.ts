@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerModel} from '../../../shared/models/CustomerModel';
+import {CustomerService} from '../../../shared/services/customer.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -10,28 +11,13 @@ export class CustomerListComponent implements OnInit {
 
   currentCustomer: CustomerModel;
   customers: CustomerModel[] = [];
-  customer1: CustomerModel = {
-    customerId: 1,
-    firstName: 'Humayun',
-    lastName: 'Rashid',
-    email: 'humayun@gmail.com',
-    phone: '647-109-0987',
-    customerSince: new Date(2010, 1)
-  };
 
-  customer2: CustomerModel = {
-    customerId: 2,
-    firstName: 'Zoya',
-    lastName: 'Rashid',
-    email: 'zoya@gmail.com',
-    phone: '647-109-2198',
-    customerSince: new Date(2012, 8)
-  };
-
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
-    this.customers.push(this.customer1, this.customer2);
+    this.customerService.getAllCustomers().subscribe(
+      (customers: CustomerModel[]) => this.customers = customers
+    );
   }
 
   getCustomerDetails(customer: CustomerModel) {

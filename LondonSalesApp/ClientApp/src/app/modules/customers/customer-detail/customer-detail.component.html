@@ -13,8 +13,11 @@
     <table class="table">
       <thead class="thead-dark">
       <tr>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col">Column</th>
+        <th scope="col">Value</th>
+        <th scope="col">
+          <button class="btn btn-primary" (click)="deleteCustomer(childCustomer.customerId)">Delete</button>
+        </th>
       </tr>
       </thead>
 
@@ -25,7 +28,7 @@
       </tr>
       <tr>
         <td>Customer Since: </td>
-        <td>{{ childCustomer.customerSince }}</td>
+        <td>{{ childCustomer.customerSince | date: 'LLL, y' }}</td>
       </tr>
       <tr>
         <td>Email: </td>
@@ -37,11 +40,11 @@
       </tr>
       <tr>
         <td>Address Line 1: </td>
-        <td>{{ childCustomer.addressLine1 }}</td>
+        <td>{{ childCustomer.line1 }}</td>
       </tr>
       <tr>
         <td>Address Line 2: </td>
-        <td>{{ childCustomer.addressLine2 }}</td>
+        <td>{{ childCustomer.line2 }}</td>
       </tr>
       <tr>
         <td>City: </td>

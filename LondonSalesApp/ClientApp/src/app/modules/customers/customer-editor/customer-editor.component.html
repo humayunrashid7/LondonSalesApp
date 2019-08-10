@@ -1,0 +1,135 @@
+<div class="row"> <!-- Row 1: Start -->
+  <div class="col">
+    <h5>{{ pageTitle }}</h5>
+  </div>
+</div> <!-- Row 1: End -->
+
+<div class="row"> <!-- Row 2: Start -->
+  <div class="col-md-6">
+
+    <div class="card"> <!-- Card Start -->
+
+      <div class="card-header"> <!-- Card Header - Start -->
+        {{ cardHeader }}
+      </div> <!-- Card Header - End -->
+
+      <div class="card-body"> <!-- Card Body - Start-->
+        <form (ngSubmit)="saveCustomer()" [formGroup]="customerForm"> <!-- Form End -->
+
+          <div class="form-row"> <!-- FormRow: FirstName, LastName - Start-->
+            <div class="form-group col-md-6">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName"
+                     placeholder="First Name (required)" formControlName="firstName"
+                     [ngClass]="{'is-invalid':
+                                              (customerForm.get('firstName').touched ||
+                                              customerForm.get('firstName').dirty) &&
+                                              !customerForm.get('firstName').valid}">
+              <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('firstName').errors?.required">
+                  Please enter first name.
+                </span>
+                <span *ngIf="customerForm.get('firstName').errors?.maxLength">
+                  The first name length must be less than 45 characters.
+                </span>
+              </span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName"
+                     placeholder="Last Name (required)" formControlName="lastName"
+                     [ngClass]="{'is-invalid':
+                                              (customerForm.get('lastName').touched ||
+                                              customerForm.get('lastName').dirty) &&
+                                              !customerForm.get('lastName').valid}">
+              <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('lastName').errors?.required">
+                  Please enter last name.
+                </span>
+                <span *ngIf="customerForm.get('lastName').errors?.maxLength">
+                  The last name length must be less than 45 characters.
+                </span>
+              </span>
+            </div>
+          </div> <!-- FormRow: FirstName, LastName - End -->
+
+          <div class="form-row"> <!-- FormRow: Email, Phone - Start -->
+            <div class="form-group col-md-6">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email"
+                     placeholder="Email (required)" formControlName="email"
+                     [ngClass]="{'is-invalid':
+                                              (customerForm.get('email').touched ||
+                                              customerForm.get('email').dirty) &&
+                                              !customerForm.get('email').valid}">
+              <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('email').errors?.required">Email address is required.</span>
+                <span *ngIf="customerForm.get('email').errors?.email">Please enter a valid email.</span>
+              </span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone"
+                     placeholder="Phone i.e. 647-123-4567" formControlName="phone">
+            </div>
+          </div> <!-- FormRow: Email, Phone - End-->
+
+          <div class="form-group"> <!-- Address Line 1 - Start -->
+            <label for="line1">Address Line 1</label>
+            <input type="text" class="form-control" id="line1"
+                   placeholder="123 Main St." formControlName="line1">
+          </div> <!-- Address Line 1 - End -->
+
+          <div class="form-group"> <!-- Address Line 2 - Start-->
+            <label for="line2">Address Line 2</label>
+            <input type="text" class="form-control" id="line2"
+                   placeholder="Apartment, studio, or floor" formControlName="line2">
+          </div> <!-- Address Line 2 - End -->
+
+          <div class="form-row"> <!-- FormRow: City, Prov, PostalCode - Start -->
+            <div class="form-group col-md-6"> <!-- City - Start -->
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city"
+                     placeholder="City" formControlName="city">
+            </div> <!-- City - End -->
+            <div class="form-group col-md-4"> <!-- Province - Start -->
+              <label for="province">Province</label>
+              <select id="province" class="form-control" formControlName="province">
+                <option selected>Choose...</option>
+                <option>Ontario</option>
+                <option>Quebec</option>
+              </select>
+            </div> <!-- Province - End -->
+            <div class="form-group col-md-2"> <!-- PostalCode - Start -->
+              <label for="postalCode">Postal Code</label>
+              <input type="text" class="form-control" id="postalCode"
+                     placeholder="L6T4N5" formControlName="postalCode">
+            </div> <!-- PostalCode - End -->
+          </div> <!-- FormRow: City, Prov, PostalCode - End -->
+
+          <div class="form-group row mb-2"> <!-- Submit Button - Start -->
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-outline-primary mr-3"
+                      style="width: 80px" [disabled]="!customerForm.valid">Submit</button>
+              <button type="button" class="btn btn-outline-secondary mr-3"
+                      style="width: 80px" title="Cancel your edits"
+                      routerLink="/customers">Cancel</button>
+              <button type="button" class="btn btn-outline-warning"
+                      style="width: 80px" title="Delete this customer"
+                      (click)="deleteCustomer()">Delete</button>
+            </div>
+          </div> <!-- Submit Button - End -->
+
+        </form> <!-- Form End -->
+      </div> <!-- Card Body - End -->
+
+    </div> <!-- Card End -->
+
+  </div>
+</div> <!-- Row 2: End -->
+
+<br>Dirty: {{ customerForm.dirty }}
+<br>Touched: {{ customerForm.touched }}
+<br>Valid: {{ customerForm.valid }}
+<br>Value: {{ customerForm.value | json }}
+

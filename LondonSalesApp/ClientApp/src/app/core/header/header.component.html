@@ -8,7 +8,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" routerLink="/customers">Customers <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" routerLinkActive='active'
+         [routerLinkActiveOptions]="{exact: true}" routerLink="/customers">Customers</a>
+      <a class="nav-item nav-link" routerLinkActive='active'
+         [routerLinkActiveOptions]="{exact: true}" routerLink="/customers/0/edit">Add Customer</a>
       <a class="nav-item nav-link" href="#">Orders</a>
       <a class="nav-item nav-link" href="#">Products</a>
       <a class="nav-item nav-link" href="#">Inventory</a>

@@ -9,7 +9,6 @@ import {CustomerService} from '../../../shared/services/customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  currentCustomer: CustomerModel;
   customers: CustomerModel[] = [];
 
   constructor(private customerService: CustomerService) { }
@@ -18,10 +17,6 @@ export class CustomerListComponent implements OnInit {
     this.customerService.getAllCustomers().subscribe(
       (customers: CustomerModel[]) => this.customers = customers
     );
-  }
-
-  getCustomerDetails(customer: CustomerModel) {
-    this.currentCustomer = customer;
   }
 
 }

@@ -1,7 +1,8 @@
 <div class="row"> <!--Row 1 - Start -->
-  <div class="col-6"> <!--Col 1 - Start -->
+  <div class="col-md-8"> <!--Col 1 - Start -->
 
     <h3>Customers List</h3>
+    <button routerLink="0/edit" class="btn btn-primary">Add Customer</button>
 
     <div class="container-fluid">
       <div class="row">
@@ -12,28 +13,30 @@
               <th scope="col">Customer ID</th>
               <th scope="col">Full Name</th>
               <th scope="col">Email</th>
+              <th scope="col">Edit</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let customer of customers">
               <td>{{ customer.customerId }}</td>
               <td>
-                <a href="javascript:void(0);" (click)="getCustomerDetails(customer)">
+                <a [routerLink]="['/customers', customer.customerId]" >
                   {{ customer.firstName }} {{ customer.lastName }}
                 </a>
               </td>
               <td>{{ customer.email }}</td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm"
+                        [routerLink]="['/customers', customer.customerId, 'edit']">
+                  Edit
+                </button>
+              </td>
             </tr>
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
+
   </div> <!--Col 1 - End -->
-
-  <div class="col-6" *ngIf="currentCustomer"> <!--Col 2 - Start -->
-    <app-customer-detail [childCustomer]="currentCustomer"></app-customer-detail>
-  </div>
-
 </div> <!--Row 1 - End -->

@@ -1,65 +1,74 @@
-<div class="row">
-  <div class="col-10">
+<div class="row"> <!--Row 1 - Start -->
+  <div class="col-10"> <!--Col 1 - Start -->
     <h3>Customer's Detail</h3>
-  </div>
-  <div class="col-2">
-    <button class="btn btn-primary" (click)="closeDetails()">Close</button>
-  </div>
-</div>
+  </div> <!--Col 1 - End -->
+</div> <!--Row 1 - End -->
 
-<div class="row">
-  <div class="col-8">
+<div *ngIf="(customer$ | async) as customer; else loading"> <!--ngIf - Start -->
+<div class="row"> <!--Row 2 - Start -->
+  <div class="col-md-6"> <!--Col 2 - Start -->
 
     <table class="table">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Column</th>
-        <th scope="col">Value</th>
-        <th scope="col">
-          <button class="btn btn-primary" (click)="deleteCustomer(childCustomer.customerId)">Delete</button>
-        </th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
       </thead>
 
       <tbody>
       <tr>
         <td>Name: </td>
-        <td>{{ childCustomer.firstName }} {{ childCustomer.lastName }}</td>
+        <td>{{ customer.firstName }} {{ customer.lastName }}</td>
       </tr>
       <tr>
         <td>Customer Since: </td>
-        <td>{{ childCustomer.customerSince | date: 'LLL, y' }}</td>
+        <td>{{ customer.customerSince | date: 'LLL, y' }}</td>
       </tr>
       <tr>
         <td>Email: </td>
-        <td>{{ childCustomer.email }}</td>
+        <td>{{ customer.email }}</td>
       </tr>
       <tr>
         <td>Phone: </td>
-        <td>{{ childCustomer.phone }}</td>
+        <td>{{ customer.phone }}</td>
       </tr>
       <tr>
         <td>Address Line 1: </td>
-        <td>{{ childCustomer.line1 }}</td>
+        <td>{{ customer.line1 }}</td>
       </tr>
       <tr>
         <td>Address Line 2: </td>
-        <td>{{ childCustomer.line2 }}</td>
+        <td>{{ customer.line2 }}</td>
       </tr>
       <tr>
         <td>City: </td>
-        <td>{{ childCustomer.city }}</td>
+        <td>{{ customer.city }}</td>
       </tr>
       <tr>
         <td>Province: </td>
-        <td>{{ childCustomer.province }}</td>
+        <td>{{ customer.province }}</td>
       </tr>
       <tr>
         <td>Postal Code: </td>
-        <td>{{ childCustomer.postalCode }}</td>
+        <td>{{ customer.postalCode }}</td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-outline-primary btn-sm"
+                  [routerLink]="['/customers', customer.customerId, 'edit']">
+            Edit
+          </button>
+        </td>
+        <td></td>
       </tr>
       </tbody>
     </table>
 
-  </div>
-</div>
+  </div> <!--Col 1 - End -->
+</div> <!--Row 2 - End -->
+</div> <!--ngIf - End-->
+
+<ng-template #loading>
+  <p>Loading API ...</p>
+</ng-template>

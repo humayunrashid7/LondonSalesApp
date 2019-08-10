@@ -5,7 +5,7 @@ export class CustomerModel {
   lastName: string;
   email: string;
   phone?: string;
-  customerSince: Date;
+  customerSince?: string;
   line1?: string;
   line2?: string;
   city?: string;
